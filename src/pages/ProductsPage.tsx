@@ -1,9 +1,10 @@
 import React from 'react';
+import PaginationComponent from "../components/Pagination/PaginationComponent";
 
 const ProductsPage = () => {
     return (
         <div>
-            ProductsPage
+           <PaginationComponent/>
         </div>
     );
 };
