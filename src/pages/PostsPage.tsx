@@ -1,13 +1,12 @@
 import React, {useEffect} from 'react';
 import {useStore} from "../store";
+import {getPosts} from "../services/api.service";
 
 const LoadPostsPage = () => {
-    const {postSlice: {allPosts, loadPosts}} = useStore()
+    let {postSlice: {allPosts, loadPosts}} = useStore()
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then((response) => response.json())
-            .then((data) => loadPosts(data));
-    }, [loadPosts]);
+        getPosts().then(value => loadPosts(value));
+    }, []);
     return (
         <div>
             {allPosts.map((post)=>(
